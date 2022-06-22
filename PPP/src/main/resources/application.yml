@@ -1,0 +1,37 @@
+server:
+  port: 6000
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: personappp
+        uri: https://app-practicas-preprofesionales.herokuapp.com
+        predicates:
+        - Path=/api/auth/persona/**
+      - id: documentoppp
+        uri: https://app-practicas-preprofesionales.herokuapp.com
+        predicates:
+        - Path=/api/auth/documento/**
+      - id: gerenteppp
+        uri: https://app-practicas-preprofesionales.herokuapp.com
+        predicates:
+        - Path=/api/auth/gerente/**
+      - id: estudianteppp
+        uri: https://app-practicas-preprofesionales.herokuapp.com
+        predicates:
+        - Path=/api/auth/estudiante/**
+      - id: solicitudppp
+        uri: https://app-practicas-preprofesionales.herokuapp.com
+        predicates:
+        - Path=/api/auth/solicitud/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTION
+
